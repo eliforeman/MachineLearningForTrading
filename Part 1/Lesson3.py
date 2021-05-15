@@ -4,8 +4,8 @@ import pandas as pd
 df = pd.read_csv("../Resources/data/YHOO.csv")
 
 
-start_date = '2004-10-20'
-end_date = '2004-10-31'
+start_date = '2010-01-22'
+end_date = '2010-01-31'
 
 dates = pd.date_range(start_date,end_date)
 
@@ -13,6 +13,8 @@ dates = pd.date_range(start_date,end_date)
 
 #new dataframe with dates as index
 df1 = pd.DataFrame(index=dates)
-print(df1)
+dfSPY = pd.read_csv('../Resources/data/SPY.csv', index_col='Date',parse_dates=True) 
+
+print(df1.join(dfSPY))
 
 
